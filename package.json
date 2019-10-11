@@ -1,0 +1,30 @@
+{
+  "name": "react-native-reactotron",
+  "title": "React Native Reactotron",
+  "version": "1.0.0",
+  "description": "The React Native plugin for Reactotron and Flipper",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/infinitered/react-native-reactotron",
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Infinite Red",
+    "email": "hello@infinite.red",
+    "url": "https://github.com/infinitered/reactotron"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infinitered/react-native-reactotron/issues"
+  },
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.8.3",
+    "react-native": "^0.59.10"
+  }
+}
