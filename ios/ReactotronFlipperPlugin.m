@@ -5,7 +5,7 @@
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKit/FlipperConnection.h>
 #import <FlipperKit/FlipperResponder.h>
-#include <stdlib.h>
+#import <stdlib.h>
 
 @implementation ReactotronFlipperPlugin
 
@@ -14,14 +14,7 @@
 }
 
 - (void)didConnect:(id<FlipperConnection>)connection {
-    [connection receive:@"config"
-              withBlock:^(NSDictionary* params, id<FlipperResponder> responder){
-                  // set received port and host to dev tools
-              }];
-    
-    NSString* r = [NSString stringWithFormat:@"%d",arc4random_uniform(74)];
-    
-    [connection send:r withParams:NSDictionary.new];
+    self.connection = connection;
 }
 
 - (void)didDisconnect {
@@ -29,6 +22,10 @@
 
 - (BOOL)runInBackground {
     return true;
+}
+
+- (void)sendCommand:(NSString *)seralizedCommand command:(NSDictionary *)obj {
+    [self.connection send:seralizedCommand withParams:obj];
 }
 
 @end

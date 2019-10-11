@@ -1,5 +1,9 @@
-#import "Reactotron.h"
+#if FB_SONARKIT_ENABLED
 
+#import "Reactotron.h"
+#import "ReactotronFlipperPlugin.h"
+
+#import <FlipperKit/FlipperClient.h>
 
 @implementation Reactotron
 
@@ -10,10 +14,14 @@ RCT_EXPORT_MODULE()
   return @[@"ExecuteCommand"];
 }
 
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(sendCommand:(NSString *)method command:(NSDictionary *)obj)
 {
-    // TODO: Implement some actually useful functionality
-	callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+    FlipperClient *client = [FlipperClient sharedClient];
+    ReactotronFlipperPlugin *myPlugin = [client pluginWithIdentifier:@"flipper-plugin-reactotron"];
+    
+    [myPlugin sendCommand:method command:obj];
 }
 
 @end
+
+#endif
