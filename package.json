@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "https://github.com/infinitered/react-native-reactotron",
+  "homepage": "https://github.com/infinitered/react-native-reactotron",
   "keywords": [
     "react-native"
   ],
