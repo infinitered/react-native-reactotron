@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "The React Native plugin for Reactotron and Flipper",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ci:publish": "yarn semantic-release"
   },
   "repository": "https://github.com/infinitered/react-native-reactotron",
   "homepage": "https://github.com/infinitered/react-native-reactotron",
@@ -26,6 +26,8 @@
   },
   "devDependencies": {
     "react": "^16.8.3",
-    "react-native": "^0.59.10"
+    "react-native": "^0.59.10",
+    "@semantic-release/git": "7.1.0-beta.6",
+    "semantic-release": "16.0.0-beta.24"
   }
 }
