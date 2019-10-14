@@ -1,7 +1,7 @@
 {
   "name": "react-native-reactotron",
   "title": "React Native Reactotron",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "The React Native plugin for Reactotron and Flipper",
   "scripts": {
     "ci:publish": "yarn semantic-release"
