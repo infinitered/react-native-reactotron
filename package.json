@@ -20,6 +20,11 @@
   "bugs": {
     "url": "https://github.com/infinitered/react-native-reactotron/issues"
   },
+  "files": [
+    "android",
+    "ios",
+    "ReactotronFlipper.podspec"
+  ],
   "peerDependencies": {
     "react": "^16.8.1",
     "react-native": ">=0.59.0-rc.0 <1.0.x"
