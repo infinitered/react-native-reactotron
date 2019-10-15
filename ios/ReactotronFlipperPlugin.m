@@ -1,3 +1,5 @@
+#if FB_SONARKIT_ENABLED
+
 #import "ReactotronFlipperPlugin.h"
 
 #import <FlipperKit/FlipperClient.h>
@@ -26,3 +28,5 @@
 }
 
 @end
+
+#endif

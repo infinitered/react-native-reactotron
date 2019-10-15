@@ -1,3 +1,5 @@
+#if FB_SONARKIT_ENABLED
+
 #import "Reactotron.h"
 #import "ReactotronFlipperPlugin.h"
 
@@ -21,3 +23,5 @@ RCT_EXPORT_METHOD(sendCommand:(NSString *)method command:(NSDictionary *)obj)
 }
 
 @end
+
+#endif

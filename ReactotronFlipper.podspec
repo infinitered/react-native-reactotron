@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.platform     = :ios, "9.0"
 
+  s.compiler_flags = "-DFB_SONARKIT_ENABLED=1"
   s.source       = { :git => "https://github.com/infinitered/react-native-reactotron.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m}"
 
