@@ -7,11 +7,22 @@
 
 @implementation Reactotron
 
+- (instancetype)init {
+    FlipperClient *client = [FlipperClient sharedClient];
+    ReactotronFlipperPlugin *myPlugin = [client pluginWithIdentifier:@"flipper-plugin-reactotron"];
+
+    [myPlugin receiveCommand:^(NSDictionary *obj) {
+        [self sendEventWithName:@"CommandReceived" body:obj];
+    }];
+
+    return self;
+}
+
 RCT_EXPORT_MODULE()
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  return @[@"ExecuteCommand"];
+  return @[@"CommandReceived"];
 }
 
 RCT_EXPORT_METHOD(sendCommand:(NSString *)method command:(NSDictionary *)obj)
