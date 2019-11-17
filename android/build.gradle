@@ -63,6 +63,8 @@ dependencies {
     // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+
+    debugImplementation "com.facebook.flipper:flipper:+"
 }
 
 def configureReactNativePom(def pom) {
@@ -74,12 +76,12 @@ def configureReactNativePom(def pom) {
         version = packageJson.version
         group = "com.reactlibrary"
         description packageJson.description
-        url packageJson.repository.baseUrl
+        url packageJson.repository
 
         licenses {
             license {
                 name packageJson.license
-                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                url packageJson.repository + '/blob/master/' + packageJson.licenseFilename
                 distribution 'repo'
             }
         }
@@ -115,9 +117,16 @@ afterEvaluate { project ->
     }
 
     android.libraryVariants.all { variant ->
+        def compileTask
+        if (variant.hasProperty('javaCompileProvider')){
+            compileTask = variant.javaCompileProvider.get()
+        }else{
+            compileTask = variant.javaCompile
+        }
+
         def name = variant.name.capitalize()
-        task "jar${name}"(type: Jar, dependsOn: variant.javaCompile) {
-            from variant.javaCompile.destinationDir
+        task "jar${name}"(type: Jar, dependsOn: compileTask) {
+            from compileTask.destinationDir
         }
     }
 
